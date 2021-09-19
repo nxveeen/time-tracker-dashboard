@@ -3,10 +3,17 @@
   "version": "1.0.0",
   "description": "![Design preview for the Time tracking dashboard coding challenge](./design/desktop-preview.jpg)",
   "main": "main.js",
+  "default": "index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "parcel index.html",
+    "build": "parcel build index.html"
   },
   "keywords": [],
   "author": "",
-  "license": "ISC"
+  "license": "ISC",
+  "dependencies": {},
+  "devDependencies": {
+    "@parcel/transformer-image": "^2.0.0-rc.0",
+    "parcel": "^2.0.0-rc.0"
+  }
 }
