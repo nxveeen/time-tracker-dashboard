@@ -1,0 +1,91 @@
+.section {
+  height: 160px;
+  border-radius: 14px;
+  // overflow: hidden;
+
+  .desc {
+    display: flex;
+    justify-content: space-between;
+    padding: 1.5rem;
+    margin-top: 33px;
+    height: 80%;
+    /* width: 150%; */
+    border-radius: 13px;
+    background-color: #1c1f4a;
+
+    .current {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      gap: 0.4rem;
+      color: white;
+
+      .type {
+        font-weight: 500;
+      }
+
+      .time {
+        font-size: 2rem;
+        font-weight: 300;
+      }
+    }
+
+    .last {
+      width: auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: space-evenly;
+
+      .time {
+        color: $pale-blue;
+        font-size: 1rem;
+      }
+
+      .ellipses {
+        background-image: url(/src/images/icon-ellipsis.svg);
+        width: 22px;
+        height: 10px;
+        margin-left: auto;
+        background-repeat: no-repeat;
+      }
+    }
+  }
+
+  &:nth-child(2) {
+    background-color: $light-orange;
+    background-image: url(/src/images/icon-work.svg);
+    background-repeat: no-repeat;
+    background-position: 15rem -6px;
+  }
+
+  &:nth-child(3) {
+    background-color: $soft-blue;
+    background-image: url(/src/images/icon-play.svg);
+    background-repeat: no-repeat;
+    background-position: 15rem -10px;
+  }
+  &:nth-child(4) {
+    background-color: $light-red;
+    background-image: url(/src/images/icon-study.svg);
+    background-repeat: no-repeat;
+    background-position: 15rem -10px;
+  }
+  &:nth-child(5) {
+    background-color: $lime-green;
+    background-image: url(/src/images/icon-exercise.svg);
+    background-repeat: no-repeat;
+    background-position: 15rem -4px;
+  }
+  &:nth-child(6) {
+    background-color: $violet;
+    background-image: url(/src/images/icon-social.svg);
+    background-repeat: no-repeat;
+    background-position: 15rem -16px;
+  }
+  &:nth-child(7) {
+    background-color: $soft-orange;
+    background-image: url(/src/images/icon-self-care.svg);
+    background-repeat: no-repeat;
+    background-position: 15rem -10px;
+  }
+}
