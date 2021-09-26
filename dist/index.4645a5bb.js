@@ -455,13 +455,230 @@ function hmrAcceptRun(bundle, id) {
 }
 
 },{}],"38Jk0":[function(require,module,exports) {
-console.log("oksy");
-const getJSON = async function(url) {
-    const res = await fetch(`${url}`);
-    const data = await res.json();
-    console.log(data[0]);
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+var _data1 = require("../data");
+var _imageJeremyPng = require("url:../../src/images/image-jeremy.png");
+var _imageJeremyPngDefault = parcelHelpers.interopDefault(_imageJeremyPng);
+class Tracker {
+    _parentElement = document.querySelector(".wrapper");
+    _data;
+    _state;
+    constructor(){
+        this._data = _data1.data;
+        this._state = "monthly";
+    }
+    _showdata() {
+        console.log(this._data);
+    }
+    _generateCardMarkup(data) {
+        let local = {
+        };
+        console.log(data);
+        const { daily , weekly , monthly  } = data.timeframes;
+        // console.log(daily, weekly, monthly);
+        if (this._state === "daily") local = daily;
+        else if (this._state === "weekly") local = weekly;
+        else if (this._state === "monthly") local = monthly;
+        return `\n      <div class="section">\n        <div class="desc">\n          <div class="current">\n            <p class="type">${data.title}</p>\n            <p class="time">${local.current}hrs</p>\n          </div>\n          <div class="last">\n            <div class="ellipses"></div>\n            <p class="time">Last Week - ${local.previous}hrs</p>\n          </div>\n        </div>\n      </div>\n    `;
+    }
+    _setProfileCard() {
+        const htmlEl = `\n      <div class="profile section">\n        <div class="profile__top">\n          <div class="pr__img">\n            <img src="${_imageJeremyPngDefault.default}" alt="">\n          </div>\n          <div class="pr__name">\n            <span>Report for</span>\n            <h3>Jeremy Robson</h3>\n          </div>\n        </div>\n        <div class="profile__bottom">\n          <button>Daily</button>\n          <button>Weekly</button>\n          <button>Monthly</button>\n        </div>\n      </div>\n    `;
+        this._parentElement.insertAdjacentHTML("afterbegin", htmlEl);
+    }
+    _setHourCards() {
+        console.log(this._data);
+        this._data.forEach((s)=>{
+            let htmlEl = this._generateCardMarkup(s);
+            this._parentElement.insertAdjacentHTML("beforeend", htmlEl);
+        });
+    }
+}
+const init = function() {
+    const t = new Tracker();
+    console.log(t._state);
+    t._setProfileCard();
+    t._setHourCards();
 };
-getJSON("./data.json");
+//---------------init function call---------------
+init();
+
+},{"../data":"5Xzuo","@parcel/transformer-js/src/esmodule-helpers.js":"JacNc","url:../../src/images/image-jeremy.png":"clH64"}],"5Xzuo":[function(require,module,exports) {
+module.exports = {
+    data: [
+        {
+            title: "Work",
+            timeframes: {
+                daily: {
+                    current: 5,
+                    previous: 7
+                },
+                weekly: {
+                    current: 32,
+                    previous: 36
+                },
+                monthly: {
+                    current: 103,
+                    previous: 128
+                }
+            }
+        },
+        {
+            title: "Play",
+            timeframes: {
+                daily: {
+                    current: 1,
+                    previous: 2
+                },
+                weekly: {
+                    current: 10,
+                    previous: 8
+                },
+                monthly: {
+                    current: 23,
+                    previous: 29
+                }
+            }
+        },
+        {
+            title: "Study",
+            timeframes: {
+                daily: {
+                    current: 0,
+                    previous: 1
+                },
+                weekly: {
+                    current: 4,
+                    previous: 7
+                },
+                monthly: {
+                    current: 13,
+                    previous: 19
+                }
+            }
+        },
+        {
+            title: "Exercise",
+            timeframes: {
+                daily: {
+                    current: 1,
+                    previous: 1
+                },
+                weekly: {
+                    current: 4,
+                    previous: 5
+                },
+                monthly: {
+                    current: 11,
+                    previous: 18
+                }
+            }
+        },
+        {
+            title: "Social",
+            timeframes: {
+                daily: {
+                    current: 1,
+                    previous: 3
+                },
+                weekly: {
+                    current: 5,
+                    previous: 10
+                },
+                monthly: {
+                    current: 21,
+                    previous: 23
+                }
+            }
+        },
+        {
+            title: "Self Care",
+            timeframes: {
+                daily: {
+                    current: 0,
+                    previous: 1
+                },
+                weekly: {
+                    current: 2,
+                    previous: 2
+                },
+                monthly: {
+                    current: 7,
+                    previous: 11
+                }
+            }
+        }, 
+    ]
+};
+
+},{}],"JacNc":[function(require,module,exports) {
+exports.interopDefault = function(a) {
+    return a && a.__esModule ? a : {
+        default: a
+    };
+};
+exports.defineInteropFlag = function(a) {
+    Object.defineProperty(a, '__esModule', {
+        value: true
+    });
+};
+exports.exportAll = function(source, dest) {
+    Object.keys(source).forEach(function(key) {
+        if (key === 'default' || key === '__esModule') return;
+        // Skip duplicate re-exports when they have the same value.
+        if (key in dest && dest[key] === source[key]) return;
+        Object.defineProperty(dest, key, {
+            enumerable: true,
+            get: function() {
+                return source[key];
+            }
+        });
+    });
+    return dest;
+};
+exports.export = function(dest, destName, get) {
+    Object.defineProperty(dest, destName, {
+        enumerable: true,
+        get: get
+    });
+};
+
+},{}],"clH64":[function(require,module,exports) {
+module.exports = require('./helpers/bundle-url').getBundleURL('kMjb9') + "image-jeremy.d2f12262.png";
+
+},{"./helpers/bundle-url":"8YnfL"}],"8YnfL":[function(require,module,exports) {
+"use strict";
+var bundleURL = {
+};
+function getBundleURLCached(id) {
+    var value = bundleURL[id];
+    if (!value) {
+        value = getBundleURL();
+        bundleURL[id] = value;
+    }
+    return value;
+}
+function getBundleURL() {
+    try {
+        throw new Error();
+    } catch (err) {
+        var matches = ('' + err.stack).match(/(https?|file|ftp):\/\/[^)\n]+/g);
+        if (matches) // The first two stack frames will be this function and getBundleURLCached.
+        // Use the 3rd one, which will be a runtime in the original bundle.
+        return getBaseURL(matches[2]);
+    }
+    return '/';
+}
+function getBaseURL(url) {
+    return ('' + url).replace(/^((?:https?|file|ftp):\/\/.+)\/[^/]+$/, '$1') + '/';
+} // TODO: Replace uses with `new URL(url).origin` when ie11 is no longer supported.
+function getOrigin(url) {
+    var matches = ('' + url).match(/(https?|file|ftp):\/\/[^/]+/);
+    if (!matches) throw new Error('Origin not found');
+    return matches[0];
+}
+exports.getBundleURL = getBundleURLCached;
+exports.getBaseURL = getBaseURL;
+exports.getOrigin = getOrigin;
 
 },{}]},["lDN0V","38Jk0"], "38Jk0", "parcelRequiref3e3")
 
